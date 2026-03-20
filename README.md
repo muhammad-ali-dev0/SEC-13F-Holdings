@@ -1,4 +1,4 @@
-# SEC 13F Holdings — Phase 1 pilot (2010–2012)
+# SEC 13F Holdings (2010–2012)
 
 Research-grade extraction from SEC Form **13F-HR** / **13F-HR/A** with emphasis on **pre-XML EDGAR** (roughly 2010–2012), where holdings live in plain-text submissions rather than a standalone information-table XML file.
 
@@ -6,13 +6,13 @@ Research-grade extraction from SEC Form **13F-HR** / **13F-HR/A** with emphasis 
 
 Written to `output/phase1/`:
 
-| File | Description |
-|------|-------------|
-| `filer_table.csv` | One row per filing: `cik`, `manager_name`, `filing_date`, `report_date`, `form_type`, `accession` |
-| `holdings_table.csv` | One row per position (see schema below) |
-| `holdings_classified.csv` | Same as holdings plus `security_class`, `confidence_score`, `confidence_category`, `quarter` |
-| `security_master.csv` | CUSIP × `class_title` roll-up with aggregated classification (when holdings non-empty) |
-| `pipeline_summary_<timestamp>.json` | Run metadata (row counts, date span, etc.) |
+| File                                | Description                                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `filer_table.csv`                   | One row per filing: `cik`, `manager_name`, `filing_date`, `report_date`, `form_type`, `accession` |
+| `holdings_table.csv`                | One row per position (see schema below)                                                           |
+| `holdings_classified.csv`           | Same as holdings plus `security_class`, `confidence_score`, `confidence_category`, `quarter`      |
+| `security_master.csv`               | CUSIP × `class_title` roll-up with aggregated classification (when holdings non-empty)            |
+| `pipeline_summary_<timestamp>.json` | Run metadata (row counts, date span, etc.)                                                        |
 
 Parquet mirrors are written if `pyarrow` is installed.
 
@@ -48,9 +48,9 @@ python run_pipeline.py --mode pilot_sample
 1. **Index discovery**  
    Modern filings expose a separate “Information Table” XML. Older filings often list a single **`13F-HR` `.txt`** document on the filing index page. The runner prefers an explicit information-table link, then any `*infotable*` XML/HTML, then the primary **`13F-HR` `.txt`**.
 
-2. **Plain-text / SGML-era `.txt` (2010–2012)**  
-   - **“X” convention:** Many filers wrap issuer names across lines; continuation rows repeat `value` / `shares` with an `X` marker and voting footers (validated against Berkshire 2010–2011-style filings; row totals align with summary `Form 13F Information Table Value Total`).  
-   - **Flat one-line rows:** Other filers use a single line per holding: `… ISSUER … CLASS 9-char CUSIP value shares SH …` (validated against Bridgewater-style 2010 filings; row count matches summary entry total).  
+2. **Plain-text / SGML-era `.txt` (2010–2012)**
+   - **“X” convention:** Many filers wrap issuer names across lines; continuation rows repeat `value` / `shares` with an `X` marker and voting footers (validated against Berkshire 2010–2011-style filings; row totals align with summary `Form 13F Information Table Value Total`).
+   - **Flat one-line rows:** Other filers use a single line per holding: `… ISSUER … CLASS 9-char CUSIP value shares SH …` (validated against Bridgewater-style 2010 filings; row count matches summary entry total).
    - Filings may contain `<PAGE>` / `<TABLE>` **inside** the `.txt`; these are **not** treated as browser HTML.
 
 3. **HTML `<TABLE>` and pipe-delimited**  
