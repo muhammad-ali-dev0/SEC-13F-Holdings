@@ -1,0 +1,16 @@
+adv_id,advisory_firm_name,advisory_norm,manager_name,manager_cik,manager_norm,match_score,match_confidence,manual_review,match_method
+ADV001,Bridgewater Associates,bridgewater,BRIDGEWATER ASSOCIATES LP,1350694,bridgewater,1.0,EXACT,False,exact_normalized
+ADV002,Renaissance Technologies,renaissance technologies,RENAISSANCE TECHNOLOGIES LLC,1037389,renaissance technologies,1.0,EXACT,False,exact_normalized
+ADV004,Two Sigma Investments,two sigma,TWO SIGMA INVESTMENTS LP,1442145,two sigma,1.0,EXACT,False,exact_normalized
+ADV005,Berkshire Hathaway,berkshire hathaway,BERKSHIRE HATHAWAY INC,1067983,berkshire hathaway,1.0,EXACT,False,exact_normalized
+ADV006,Millennium Management,millennium,MILLENNIUM MANAGEMENT LLC,1273931,millennium,1.0,EXACT,False,exact_normalized
+ADV011,Bridgewater Assoc.,bridgewater,BRIDGEWATER ASSOCIATES LP,1350694,bridgewater,1.0,EXACT,False,exact_normalized
+ADV012,Renaissance Tech LLC,renaissance technologies,RENAISSANCE TECHNOLOGIES LLC,1037389,renaissance technologies,1.0,EXACT,False,exact_normalized
+ADV014,Berkshire Hathaway Inc.,berkshire hathaway,BERKSHIRE HATHAWAY INC,1067983,berkshire hathaway,1.0,EXACT,False,exact_normalized
+ADV003,AQR Capital Management,aqr,AQR CAPITAL MANAGEMENT LLC,1336528,aqr,1.0,HIGH,False,fuzzy_combined
+ADV013,AQR Capital Mgmt,aqr,AQR CAPITAL MANAGEMENT LLC,1336528,aqr,1.0,HIGH,False,fuzzy_combined
+ADV009,D.E. Shaw & Co.,d e shaw,NO_MATCH,,,0.3846,NO_MATCH,True,fuzzy_combined
+ADV008,Point72 Asset Management,point72 asset,NO_MATCH,,,0.3459,NO_MATCH,True,fuzzy_combined
+ADV007,Citadel Advisors LLC,citadel,NO_MATCH,,,0.3333,NO_MATCH,True,fuzzy_combined
+ADV010,Baupost Group LLC,baupost,NO_MATCH,,,0.3333,NO_MATCH,True,fuzzy_combined
+ADV015,Completely Unknown Advisors Ltd,completely unknown,NO_MATCH,,,0.2857,NO_MATCH,True,fuzzy_combined

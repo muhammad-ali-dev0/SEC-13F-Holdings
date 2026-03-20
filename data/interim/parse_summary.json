@@ -1,0 +1,14 @@
+{
+  "filer_count": 6,
+  "holding_rows": 28,
+  "unique_cusips": 25,
+  "unique_managers": 6,
+  "date_range": "2022-12-31 to 2023-12-31",
+  "quarters_covered": [
+    "2022Q4",
+    "2023Q1",
+    "2023Q2",
+    "2023Q3",
+    "2023Q4"
+  ]
+}
